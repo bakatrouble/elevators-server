@@ -15,7 +15,8 @@ class ApplicationType(models.Model):
 
 
 class Application(models.Model):
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
+    creation_date = models.DateField(auto_now_add=True)
     type = models.ForeignKey(ApplicationType)
     client = models.ForeignKey(Client)
 

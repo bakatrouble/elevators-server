@@ -13,6 +13,8 @@ class Client(models.Model):
     bank = models.CharField(max_length=256, blank=True)
     bik = models.CharField(max_length=256, blank=True)
     ogrn = models.CharField(max_length=256, blank=True)
+    person_name = models.CharField(max_length=256, blank=True)
+    person_post = models.CharField(max_length=256, blank=True)  # должность
 
     def __str__(self):
         return self.short_name

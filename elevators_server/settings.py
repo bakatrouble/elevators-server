@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'shared',
     'applications',
+    'contracts',
 ]
 
 MIDDLEWARE = [

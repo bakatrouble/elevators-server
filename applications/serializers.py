@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from accounts.serializers import AccountSerializer
 from contracts.serializers import ContractSerializer
 from .models import Application, ApplicationEntry, ApplicationType
 
@@ -21,7 +22,7 @@ class ApplicationEntrySerializer(serializers.ModelSerializer):
 class ApplicationSerializer(serializers.ModelSerializer):
     entries = ApplicationEntrySerializer(many=True)
     contract = ContractSerializer(source='get_contract', read_only=True)
-    contract = ContractSerializer(source='get_contract', read_only=True)
+    account = AccountSerializer(source='get_account', read_only=True)
 
     class Meta:
         model = Application

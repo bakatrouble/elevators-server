@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shared',
     'applications',
     'contracts',
+    'accounts',
 ]
 
 MIDDLEWARE = [

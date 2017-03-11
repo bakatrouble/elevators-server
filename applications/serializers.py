@@ -21,10 +21,11 @@ class ApplicationEntrySerializer(serializers.ModelSerializer):
 class ApplicationSerializer(serializers.ModelSerializer):
     entries = ApplicationEntrySerializer(many=True)
     contract = ContractSerializer(source='get_contract', read_only=True)
+    contract = ContractSerializer(source='get_contract', read_only=True)
 
     class Meta:
         model = Application
-        fields = 'id', 'date', 'type', 'client', 'entries', 'contract',  # 'account', 'order', 'protocols',
+        fields = 'id', 'date', 'type', 'client', 'entries', 'contract', 'account',  # 'order', 'protocols',
 
     def create(self, validated_data):
         entries = validated_data.pop('entries')

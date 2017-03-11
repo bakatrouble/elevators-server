@@ -1,6 +1,7 @@
 from django.db import models
-from django.apps import apps
 
+from accounts.models import Account
+from contracts.models import Contract
 from shared.models import Client
 
 
@@ -22,7 +23,10 @@ class Application(models.Model):
     client = models.ForeignKey(Client)
 
     def get_contract(self):
-        return apps.get_model('contracts', 'Contract').objects.filter(application=self).first()
+        return Contract.objects.filter(application=self).first()
+
+    def get_account(self):
+        return Account.objects.filter(application=self).first()
 
 
 class ApplicationEntry(models.Model):

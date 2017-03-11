@@ -1,10 +1,8 @@
 from django.db import models
 
-from applications.models import Application
-
 
 class Contract(models.Model):
-    application = models.ForeignKey(Application)
+    application = models.ForeignKey('applications.Application')
     number = models.CharField(max_length=256)
     date = models.DateField(blank=True)
     finish_date = models.DateField(blank=True)

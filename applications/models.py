@@ -1,4 +1,5 @@
 from django.db import models
+from django.apps import apps
 
 from shared.models import Client
 
@@ -19,6 +20,9 @@ class Application(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     type = models.ForeignKey(ApplicationType)
     client = models.ForeignKey(Client)
+
+    def get_contract(self):
+        return apps.get_model('contracts', 'Contract').objects.filter(application=self).first()
 
 
 class ApplicationEntry(models.Model):

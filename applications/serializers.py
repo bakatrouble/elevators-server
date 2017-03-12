@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from accounts.serializers import AccountSerializer
 from contracts.serializers import ContractSerializer
+from orders.serializers import OrderSerializer
 from .models import Application, ApplicationEntry, ApplicationType
 
 
@@ -23,10 +24,11 @@ class ApplicationSerializer(serializers.ModelSerializer):
     entries = ApplicationEntrySerializer(many=True)
     contract = ContractSerializer(source='get_contract', read_only=True)
     account = AccountSerializer(source='get_account', read_only=True)
+    order = OrderSerializer(source='get_order', read_only=True)
 
     class Meta:
         model = Application
-        fields = 'id', 'date', 'type', 'client', 'entries', 'contract', 'account',  # 'order', 'protocols',
+        fields = 'id', 'date', 'type', 'client', 'entries', 'contract', 'account', 'order'  # , 'protocols',
 
     def create(self, validated_data):
         entries = validated_data.pop('entries')

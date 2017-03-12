@@ -2,6 +2,7 @@ from django.db import models
 
 from accounts.models import Account
 from contracts.models import Contract
+from orders.models import Order
 from shared.models import Client
 
 
@@ -27,6 +28,9 @@ class Application(models.Model):
 
     def get_account(self):
         return Account.objects.filter(application=self).first()
+
+    def get_order(self):
+        return Order.objects.filter(application=self).first()
 
 
 class ApplicationEntry(models.Model):

@@ -9,7 +9,8 @@ from .models import Application, ApplicationEntry, ApplicationType
 class ApplicationTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ApplicationType
-        fields = ('id', 'name', 'hints', 'application_template', 'contract_template', 'order_template',)
+        fields = ('id', 'name', 'hints', 'application_template', 'contract_template', 'account_template',
+                  'order_template',)
 
 
 class ApplicationEntrySerializer(serializers.ModelSerializer):

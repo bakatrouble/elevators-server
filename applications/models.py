@@ -11,6 +11,7 @@ class ApplicationType(models.Model):
     hints = models.TextField(blank=True)
     application_template = models.TextField(blank=True)
     contract_template = models.TextField(blank=True)
+    account_template = models.TextField(blank=True)
     order_template = models.TextField(blank=True)
 
     def __str__(self):

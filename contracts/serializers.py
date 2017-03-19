@@ -8,5 +8,6 @@ class ContractSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contract
-        fields = ('id', 'application', 'number', 'date', 'finish_date', 'price', 'terms', 'poa',
-                  'poa_number', 'poa_date', 'client')
+        fields = ('id', 'application', 'number', 'date', 'finish_date', 'price', 'terms', 'poa_client',
+                  'poa_client_number', 'poa_client_date', 'poa_contractor', 'poa_contractor_number',
+                  'poa_contractor_date', 'client')

@@ -7,15 +7,19 @@ from shared.models import Client
 
 
 class ApplicationType(models.Model):
-    name = models.CharField(max_length=256)
-    hints = models.TextField(blank=True)
-    application_template = models.TextField(blank=True)
-    contract_template = models.TextField(blank=True)
-    account_template = models.TextField(blank=True)
-    order_template = models.TextField(blank=True)
+    name = models.CharField(max_length=256, verbose_name='Название')
+    # hints = models.TextField(blank=True, verbose_name='Подсказки')
+    application_template = models.TextField(blank=True, verbose_name='Шаблон печати заявки')
+    contract_template = models.TextField(blank=True, verbose_name='Шаблон печати договора')
+    account_template = models.TextField(blank=True, verbose_name='Шаблон печати счета')
+    order_template = models.TextField(blank=True, verbose_name='Шаблон печати приказа')
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'тип заявки'
+        verbose_name_plural = 'типы заявок'
 
 
 class Application(models.Model):

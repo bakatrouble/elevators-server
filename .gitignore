@@ -136,3 +136,5 @@ fabric.properties
 
 db.sqlite3
 
+elevators_server/local_settings.py
+

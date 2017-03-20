@@ -3,8 +3,14 @@ from django.contrib import admin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
+from rest_framework.authtoken.models import Token
 
-from .models import Client, User
+from .models import Specialist, User
+
+
+@admin.register(Specialist)
+class SpecialistAdmin(admin.ModelAdmin):
+    pass
 
 
 class UserCreationForm(forms.ModelForm):
@@ -63,3 +69,4 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 admin.site.unregister(Group)
+admin.site.unregister(Token)

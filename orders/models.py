@@ -10,5 +10,7 @@ class Order(models.Model):
     to_date = models.DateField(blank=True)
     act_date = models.DateField(blank=True)
     controller = models.CharField(max_length=256, blank=True)
+    manager = models.CharField(max_length=256, blank=True)
+    expert = models.CharField(max_length=256, blank=True)
     head_specialist = models.ForeignKey(Specialist, null=True, related_name='heading_orders')
     specialists = models.ManyToManyField(Specialist, blank=True)

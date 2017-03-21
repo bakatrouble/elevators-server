@@ -122,4 +122,7 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'shared.User'
 
-from .local_settings import *
+try:
+    from .local_settings import *
+except ImportError:
+    pass

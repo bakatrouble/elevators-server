@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Contract(models.Model):
-    application = models.ForeignKey('applications.Application')
+    application = models.ForeignKey('applications.Application', related_name='contract')
     number = models.CharField(max_length=256, blank=True)
     date = models.DateField(blank=True)
     terms = models.IntegerField(default=0)
